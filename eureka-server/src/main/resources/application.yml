@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    include: mc1 
+
+server:
+  port: 7761
+
+eureka:
+  instance:
+    hostname: mc1
+  client:
+    # register-with-eureka: false
+    # fetch-registry: false
+    service-url:
+      defaultZone:  http://mc2:6761/eureka/
