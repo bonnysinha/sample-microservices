@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ms2
+  cloud:
+    config:
+      uri: http://mc1:8888
+
+server:
+   port: 8082
