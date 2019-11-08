@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ms-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: /home/mysys/home-cloud-repo
+          # uri: https://github.com/bonnysinha/home-cloud-repo.git
+          search-paths:
+          - configuration/${application}/
+          - configuration/
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    eureka-server-connect-timeout-seconds: 10000
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+            defaultZone: http://mc1:7761/eureka/,http://mc2:6761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+    prefer-ip-address: true
