@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: zuul-proxy-server
+  cloud:
+    config:
+            uri: http://mc1:8888
+server:
+  port: 8080
+
+zuul:
+  prefix: /api
+  routes:
+    ms1:
+      path: /ms1/**
+      service-id: MS1
+    ms2:
+      path: /ms2/**
+      service-id: MS2
